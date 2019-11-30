@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <a class="navbar-brand" href="#">Kindt meseum</a>
+</nav>
+  <p class="navbar-text float-right">
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+<% end %>
+</p>
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+    <%= yield %>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+  <footer class="footer text-muted bg-light">
+  <div class="container">
+    <span>© <%= Date.today.year %> Your Company</span>
+    <ul class="list-inline mb-0 float-right">
+      <%# <li class="list-inline-item mr-3"><%= link_to "Terms", terms_path</li> %>
+      <%# <li class="list-inline-item mr-3"><%= link_to "Privacy", privacy_path %></li> %> %>
+    </ul>
+  </div>
+</footer>
+</html>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<div class="col-sm-6">
+    <h1>Exhibitions</h1>
+  </div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Discription</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exhibitions.each do |exhibition| %>
+      <tr>
+        <td><%= exhibition.photo %></td>
+        <td><%= exhibition.title %></td>
+        <td><%= exhibition.date %></td>
+        <td><%= exhibition.time %></td>
+        <td><%= exhibition.discription %></td>
+        <td><%= link_to 'Show', exhibition %></td>
+        <td><%= link_to 'Edit', edit_exhibition_path(exhibition) %></td>
+        <td><%= link_to 'Destroy', exhibition, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+       <%=link_to "ATTEND EVENT", new_exhibition_ticket_path(exhibition)%>
+    <% end %>
+  </tbody>
+</div>
+</table>
+
+<br>
+
+<%= link_to 'New Exhibition', new_exhibition_path %>

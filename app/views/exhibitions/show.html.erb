@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @exhibition.photo %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @exhibition.title %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @exhibition.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @exhibition.time %>
+</p>
+
+<p>
+  <strong>Discription:</strong>
+  <%= @exhibition.discription %>
+</p>
+
+<%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
+<%= link_to 'Back', exhibitions_path %>
