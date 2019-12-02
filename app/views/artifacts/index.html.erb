@@ -13,11 +13,13 @@
             <div class="col-md-4">
               <div class="card mb-2">
                <td><% if artifact.image_url %>
-               <%= image_tag artifact.image_url %>
+               <%= image_tag artifact.image_url, size:"200x100" %>
                <% end %>
                 <div class="card-body">
                   <h4 class="card-title"><%= artifact.name %></h4>
                   <p class="card-text"><%= artifact.description %></p>
+                   <p class="card-text"><%= artifact.amount %></p>
+                    <p class="card-text"><%= artifact.category %></p>
                   <a class="btn btn-primary">Button</a>
                    <% if user_signed_in? %>
                     <% if current_user.admin?%>
