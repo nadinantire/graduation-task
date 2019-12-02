@@ -4,7 +4,7 @@ class ArtifactsController < ApplicationController
   # GET /artifacts
   # GET /artifacts.json
   def index
-    @artifacts = Artifact.all
+    @artifacts = Artifact.order("name").page(params[:page]).per(2)
   end
 
   # GET /artifacts/1
@@ -69,6 +69,6 @@ class ArtifactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artifact_params
-      params.require(:artifact).permit(:name, :description, :image, :amount, :category)
+      params.require(:artifact).permit(:name, :description, :image, :amount, :category, :image_cache)
     end
 end

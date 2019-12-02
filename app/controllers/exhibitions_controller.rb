@@ -4,7 +4,7 @@ class ExhibitionsController < ApplicationController
   # GET /exhibitions
   # GET /exhibitions.json
   def index
-    @exhibitions = Exhibition.all
+    @exhibitions = Exhibition.order("title").page(params[:page]).per(2)
   end
 
   # GET /exhibitions/1
@@ -69,6 +69,6 @@ class ExhibitionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exhibition_params
-      params.require(:exhibition).permit(:name, :start_time, :end_time, :image, :date, :image_cache)
+      params.require(:exhibition).permit(:image, :title, :date, :start_time, :discription, :end_time, :image_cache)
     end
 end
