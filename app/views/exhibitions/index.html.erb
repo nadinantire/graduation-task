@@ -7,10 +7,11 @@
   <table class="table table-striped table-bordered table-hover">
   <thead>
     <tr>
-      <th>Photo</th>
+      <th>Image</th>
       <th>Title</th>
       <th>Date</th>
-      <th>Time</th>
+      <th>Start Time</th>
+      <th>End Time</th>
       <th>Discription</th>
       <th colspan="3"></th>
     </tr>
@@ -19,10 +20,11 @@
   <tbody>
     <% @exhibitions.each do |exhibition| %>
       <tr>
-        <td><%= exhibition.photo %></td>
+        <td><%= exhibition.image %></td>
         <td><%= exhibition.title %></td>
         <td><%= exhibition.date %></td>
-        <td><%= exhibition.time %></td>
+        <td><%= exhibition.start_time %></td>
+        <td><%= exhibition.end_time %></td>
         <td><%= exhibition.discription %></td>
         <td><%= link_to 'Show', exhibition %></td>
         <td><%= link_to 'Edit', edit_exhibition_path(exhibition) %></td>

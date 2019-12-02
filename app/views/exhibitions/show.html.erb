@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Photo:</strong>
-  <%= image_tag @exhibition.photo.url %>
+  <strong>image:</strong>
+  <%= image_tag @exhibition.image.url %>
 </p>
 
 <p>
@@ -16,14 +16,18 @@
 </p>
 
 <p>
-  <strong>Time:</strong>
-  <%= @exhibition.time %>
+  <strong>Start Time:</strong>
+  <%= @exhibition.start_time %>
 </p>
-
 <p>
   <strong>Discription:</strong>
   <%= @exhibition.discription %>
 </p>
+<p>
+  <strong>End Time:</strong>
+  <%= @exhibition.end_time %>
+</p>
+
 
 <%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
 <%= link_to 'Back', exhibitions_path %>

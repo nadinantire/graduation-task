@@ -69,6 +69,6 @@ class ExhibitionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def exhibition_params
-      params.require(:exhibition).permit(:photo, :title, :date, :time, :discription, :image_cache)
+      params.require(:exhibition).permit(:image, :title, :date, :start_time, :discription, :end_time, :image_cache)
     end
 end

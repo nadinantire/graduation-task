@@ -2,8 +2,8 @@
 
 <h1>Artifacts</h1>
 
-<div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
+<%# <div class="table-responsive"> %>
+  <%# <table class="table table-striped table-bordered table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -15,24 +15,136 @@
     </tr>
   </thead>
 
-  <tbody>
-    <% @artifacts.each do |artifact| %>
-      <tr>
-        <td><%= artifact.name %></td>
-        <td><%= artifact.description %></td>
-        <td><%= artifact.image %></td>
-        <td><%= artifact.amount %></td>
-        <td><%= artifact.category %></td>
-        <td><%= link_to 'Show', artifact %></td>
-        <td><%= link_to 'Edit', edit_artifact_path(artifact) %></td>
-        <td><%= link_to 'Destroy', artifact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+  <tbody> %>
+   
+  <%# </tbody>
 </div>
-</table>
+</table> %>
 <%= paginate @artifacts %>
 
 <br>
 
-<%= link_to 'New Artifact', new_artifact_path %>
+
+
+  <div class="container my-4">
+
+    <!--<p class="font-weight-bold">Bootstrap carousel multiple items is an improved version of the standard bootstrap
+      carousel which allows you to put inside more than one element.</p>
+
+    <p><strong>Detailed documentation and more examples of Bootstrap grid you can find in our <a href="https://mdbootstrap.com/docs/jquery/javascript/carousel/"
+          target="_blank">Bootstrap Carousel Docs</a>.</p>
+
+    <hr class="my-4">-->
+
+    <!--Carousel Wrapper-->
+    <%# <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel"> %>
+
+      <!--Controls-->
+      <%# <div class="controls-top">
+        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
+        <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+      </div> %>
+      <!--/.Controls-->
+
+      <!--Indicators-->
+      <%# <ol class="carousel-indicators">
+        <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+        <li data-target="#multi-item-example" data-slide-to="1"></li>
+        <li data-target="#multi-item-example" data-slide-to="2"></li>
+      </ol> %>
+      <!--/.Indicators-->
+
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+<% @artifacts.each do |artifact| %>
+        <!--First slide-->
+        <div class="carousel-item active">
+       
+      
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-2">
+              
+               <%= artifact.image %>
+                <div class="card-body">
+                  <h4 class="card-title"><%= artifact.name %></h4>
+                  <p class="card-text"><%= artifact.description %></p>
+                  <a class="btn btn-primary">Button</a>
+                  <%= link_to 'New Artifact', new_artifact_path %>
+                </div>
+                 
+              </div>
+            </div>
+ <% end %>            
+           
+           
+
+        </div>
+        <!--/.First slide-->
+
+        <!--Second slide-->
+        
+
+            
+
+            
+
+        </div>
+        <!--/.Second slide-->
+
+        <!--Third slide-->
+        <div class="carousel-item">
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-2">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a class="btn btn-primary">Button</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a class="btn btn-primary">Button</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 clearfix d-none d-md-block">
+              <div class="card mb-2">
+                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg"
+                  alt="Card image cap">
+                <div class="card-body">
+                  <h4 class="card-title">Card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p>
+                  <a class="btn btn-primary">Button</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!--/.Third slide-->
+
+      </div>
+      <!--/.Slides-->
+
+    </div>
+    <!--/.Carousel Wrapper-->
+
+
+  </div>
