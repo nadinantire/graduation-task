@@ -41,20 +41,29 @@
                      <li class="nav-item">
                        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>&nbsp;&nbsp;
                       </li>
+                       <% if current_user.admin?%>
+
+               <li class="nav-item">
+                    <li class="nav-item"><%= link_to "Admin Panel",  rails_admin.dashboard_path, class: "nav-link" %></li>
+                  </li>
+  <% end %>
                       <% else %>                    
                   <li class="nav-item">
                     <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link" %></li> 
                   </li>
                   <li class="nav-item"><%= link_to "Home", visits_path, class: "nav-link" %>
                   </li>
-                  <li class="nav-item"><%= link_to "Event", visits_path, class: "nav-link" %>
+                  <li class="nav-item"><%= link_to "Event", exhibitions_path, class: "nav-link" %>
                   </li>
                   <li class="nav-item">
                     <li class="nav-item"><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></li>
                   </li>
+                 
                   <li class="nav-item">
-                    <li class="nav-item"><%= link_to "Garelley", new_user_registration_path, class: "nav-link" %></li>
-                  </li>
+                    <li class="nav-item"><%= link_to "Garelley",  galleries_gallery_path, class: "nav-link" %></li>
+                  </li>    
+   
+
                   <% end %>
                 </ul>
                 <form class="form-inline">
@@ -106,45 +115,7 @@
           </div>
         </main>
         <!--Main Layout-->
-  <nav class="navbar navbar-light bg-light">
-  <div class="container-fluid">
-    <div class="navbar-header">
-  <a class="navbar-brand" href="#">Kindt meseum</a>
-  </div>
-    <p class="navbar-text float-right">
-<p class="navbar-text float-right">
-
-  <ul class="nav justify-content-end">
-  <% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-  <li class="nav-item">
-   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %>&nbsp;&nbsp;&nbsp;
-  </li>
-  <li class="nav-item">
-     <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>&nbsp;&nbsp;
-  </li>
-  <% else %>
-  <li class="nav-item">
-   <%= link_to "Sign up", new_user_registration_path, :class => 'glyphicon glyphicon-log-in'  %>&nbsp;&nbsp;
-  </li>
-  <li class="nav-item">
-     <%= link_to "Login", new_user_session_path, :class => 'glyphicon glyphicon-user'  %>&nbsp;&nbsp;
-  </li>
-  <li class="nav-item">
-     <%= link_to "Login", new_user_session_path, :class => 'glyphicon glyphicon-user'  %>&nbsp;&nbsp;
-  </li>
-  <li class="nav-item">
-     <%= link_to "Login", new_user_session_path, :class => 'glyphicon glyphicon-user'  %>&nbsp;&nbsp;
-  </li>
-  <li class="nav-item">
-     <%= link_to "Login", new_user_session_path, :class => 'glyphicon glyphicon-user'  %>&nbsp;&nbsp;
-  </li>
-
-  <% end %>
-</ul>
-  </div>
-</nav>
-</p>
+  
 
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>

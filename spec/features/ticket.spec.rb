@@ -4,27 +4,30 @@ require 'rails_helper'
 RSpec.feature "Ticket management function", type: :feature do
   # In scenario (alias of it), write the processing of the test for each item you want to check.
   background do 
-    User.create!(email: "g@gmail.com", password: "123456")
+    @user=User.create!(email: "g@gmail.com", password: "123456")
     end
-    background do
-        visit  root_path
-        fill_in  'Email' ,  with: 'g@gmail.com'
-        fill_in  'Password' ,  with: '123456'
-        click_on  'Log in'
-        expect(page ).to have_text('Logged in as g@gmail.com.')
-    end
+  
     scenario "Test exhibition list" do
+      @ex=Exhibition.create!(title: 'test_exhibition_01')
     
-        Ticket.create!(title: 'test_exhibition_01')
-        visit exhibitions_path
-
-    expect(page).to have_content 'test_exhibition_01'
+       @ticket= Ticket.create!(phone: 'test_exhibition_01',user_id:@user.id, exhibition_id:@ex.id)
+        
+assert @ticket
+    
     end
   scenario "Test ticket list" do
-    Ticket.create!(phone: 'test_ticket_01', exhibition_id: '1',user_id: '1' )
-    visit tickets_path
+@tickets=Ticket.all
 
-    expect(page).to have_content 'test_ticket_01'
-    
+    assert  @tickets
   end
+
+
+
+  scenario "validation" do
+    @ex=Exhibition.create!(title: 'test_exhibition_01')
+    
+    @ticket= Ticket.create!(phone: 'test_exhibition_01',user_id:@user.id, exhibition_id:@ex.id)
+    expect(@ticket).to be_valid
+      end
+
 end
