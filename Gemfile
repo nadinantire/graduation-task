@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.9', '>= 4.9.2'
-gem 'carrierwave', '~> 0.5'
+gem 'carrierwave', '~> 1.3'
 gem 'carrierwave_backgrounder', :git => 'https://github.com/lardawge/carrierwave_backgrounder.git'
 gem 'kaminari'
 gem 'rails_admin-i18n'
